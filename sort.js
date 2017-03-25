@@ -8,3 +8,41 @@ var products = [
                 { name: "Root Beer", calories: 200, color: "caramel", sold: 9909 },
                 { name: "Water", calories: 0, color: "clear", sold: 62123 }
                ];
+
+function compareName(colaA, colaB) {
+  return colaA.name > colaB.name;
+}
+
+function compareCalories(colaA, colaB) {
+  return colaA.calories > colaB.calories;
+}
+
+function compareColor(colaA, colaB) {
+  return colaA.color > colaB.color;
+}
+function compareSold(colaA, colaB) {
+  return colaA.sold > colaB.sold;
+}
+
+function printProducts(products) {
+  for(var i = 0; i < products.length; i++){
+    console.log("Name: " + products[i].name + ", Calories: " + products[i].calories +
+                 ", Color: " + products[i].color + ", Sold: " + products[i].sold)
+  }
+}
+
+products.sort(compareName);
+console.log("Products sorted by name: ");
+printProducts(products);
+
+products.sort(compareCalories);
+console.log("Products sorted by calories: ");
+printProducts(products);
+
+products.sort(compareColor);
+console.log("Products sorted by color: ");
+printProducts(products);
+
+products.sort(compareSold);
+console.log("Products sorted by sold: ");
+printProducts(products);
