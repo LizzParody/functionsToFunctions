@@ -1,8 +1,8 @@
-var passengers = [ { name: "Liz Parody", paid: true },
-                   { name: "Matt Powers", paid: true },
-                   { name: "Ilana Parody", paid: false },
-                   { name: "Margarita Alvarez", paid: true },
-                   { name: "Dr. Evel", paid: true }
+var passengers = [ { name: "Liz Parody", paid: true, ticket: "firstclass" },
+                   { name: "Matt Powers", paid: true, ticket: "coach" },
+                   { name: "Ilana Parody", paid: false, ticket: "premium"},
+                   { name: "Margarita Alvarez", paid: true, ticket: "firstclass" },
+                   { name: "Dr. Evel", paid: true, ticket: "coach" }
                  ];
 
 function processPassengers(passengers, test) {
@@ -44,3 +44,51 @@ function printPassenger(passenger) {
 }
 
 processPassengers(passengers, printPassenger);
+
+function serveCustomer(passenger) {
+  var getDrinkOrderFunction = createDrinkOrder(passenger);
+  getDrinkOrderFunction(passenger);
+
+  getDrinkOrderFunction(passenger);
+  getDrinkOrderFunction(passenger);
+
+  getDrinkOrderFunction(passenger);
+}
+
+function createDrinkOrder(passenger){
+  var orderFunction;
+
+  if (passenger.ticket === "firstclass") {
+    orderFunction = function() {
+      alert("Would you like a cocktail or wine?");
+    };
+  } else if (passenger.ticket === "premium") {
+    orderFunction = function() {
+      alert("Would you like wine, cola or water?");
+    };
+  } else {
+    orderFunction = function() {
+      alert("Your choice is cola or water.");
+    };
+  }
+  return orderFunction;
+}
+
+function createDinnerOrder(passenger) {
+  var oderFunction;
+
+  if (passenger.ticket === "firstclass") {
+    orderFunction = function() {
+      alert("Would you like chicken or pasta?");
+    };
+  } else if (passenger.ticket === "premium") {
+    
+  }
+}
+function servePassengers(passengers) {
+  for(var i = 0; i < passengers.length; i++){
+    serveCustomer(passengers[i]);
+  }
+}
+
+servePassengers(passengers);
