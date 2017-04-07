@@ -47,7 +47,11 @@ processPassengers(passengers, printPassenger);
 
 function serveCustomer(passenger) {
   var getDrinkOrderFunction = createDrinkOrder(passenger);
+  var getDinnerOrderFunction = createDinnerOrder(passenger);
+
   getDrinkOrderFunction(passenger);
+
+  getDinnerOrderFunction();
 
   getDrinkOrderFunction(passenger);
   getDrinkOrderFunction(passenger);
@@ -82,9 +86,17 @@ function createDinnerOrder(passenger) {
       alert("Would you like chicken or pasta?");
     };
   } else if (passenger.ticket === "premium") {
-    
+    orderFunction = function() {
+      alert("Would you like a snack box or cheese plate?");
+    };
+  } else {
+    orderFunction = function() {
+      alert("Would you like peanuts or pretzels?")
+    };
   }
+  return orderFunction;
 }
+
 function servePassengers(passengers) {
   for(var i = 0; i < passengers.length; i++){
     serveCustomer(passengers[i]);
